@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rehearse — Human × Machine</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111;
+    --ink-2: #3a3a3a;
+    --ink-3: #6b6b6b;
+    --line: #e3e3e3;
+    --accent: #c24a1d;
+    --card: #f7f6f4;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); }
+  body {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 24px 18px 80px;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  h1 small {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sub {
+    color: var(--ink-3);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin: 3px 2px;
+    min-width: 32px;
+    text-align: center;
+  }
+  .toc a:active { background: var(--accent); color: #fff; }
+
+  .slide {
+    padding: 22px 0 28px;
+    border-top: 2px solid var(--ink);
+    scroll-margin-top: 16px;
+  }
+  .slide:first-of-type { border-top: 0; padding-top: 0; }
+  .slide__num {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    padding: 3px 10px 2px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .slide__chapter {
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .slide__title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  section.block {
+    margin-bottom: 18px;
+  }
+  section.block h3 {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .en {
+    background: var(--card);
+    border-left: 3px solid var(--ink);
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .en p + p { margin-top: 8px; }
+  .en ul { padding-left: 18px; margin-top: 6px; }
+  .en li { margin-bottom: 4px; }
+  .en b { color: var(--ink); }
+  .en em { font-style: italic; color: var(--accent); }
+
+  .ru {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .ru p + p { margin-top: 12px; }
+  .ru strong { font-weight: 700; }
+  .ru em { font-style: italic; color: var(--accent); }
+
+  .back-top {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    padding: 10px;
+    color: var(--ink-3);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000;
+      --ink: #f2f2f2;
+      --ink-2: #c2c2c2;
+      --ink-3: #8a8a8a;
+      --line: #2a2a2a;
+      --accent: #ff6a30;
+      --card: #121212;
+    }
+    .slide__num { background: var(--ink); color: #000; }
+    .en b { color: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<h1><small>Rehearse · MDE 172</small>Should humanoid robots replace humans in everyday work?</h1>
+<p class="sub">Dias Kabdualiyev · Alashed Robotics · Spring 2026</p>
+
+<nav class="toc">
+  <a href="#s1">01</a><a href="#s2">02</a><a href="#s3">03</a><a href="#s4">04</a><a href="#s5">05</a><a href="#s6">06</a><a href="#s7">07</a><a href="#s8">08</a><a href="#s9">09</a><a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a><a href="#s15">15</a>
+</nav>
+
+<!-- SLIDE 1 -->
+<article class="slide" id="s1">
+  <span class="slide__num">01 / 15</span>
+  <div class="slide__chapter">§ I · The Question</div>
+  <div class="slide__title">Should humanoid robots replace humans in everyday work?</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p><b>Dias Kabdualiyev</b> — Director · Alashed Robotics</p>
+      <ul>
+        <li>Alashed — educational robotics kits · own design · schools &amp; universities</li>
+        <li>Official Unitree distributor · Kazakhstan</li>
+        <li>2<sup>nd</sup> place · Physical AI Championship (solo entry) · 2025</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p><strong>Здравствуйте.</strong> Меня зовут <em>Диас Кабдуалиев</em>. Я руковожу компанией <strong>Alashed</strong> — мы занимаемся образовательными наборами по робототехнике для школ и университетов, выпускаем наборы собственной разработки. А также мы — <strong>официальные дистрибьюторы роботов Unitree в Казахстане</strong>.</p>
+      <p>Последние <strong>полгода</strong> я работаю с гуманоидным роботом <em>Unitree G1</em>. За это же время занял <strong>второе место в Physical AI Championship</strong>, участвуя в одиночку.</p>
+      <p>Сегодня я хочу обсудить с вами вопрос, с которым столкнулся за эти полгода — <em>не в книжках, а на практике</em>: должны ли гуманоидные роботы заменить человека в повседневной работе?</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 2 -->
+<article class="slide" id="s2">
+  <span class="slide__num">02 / 15</span>
+  <div class="slide__chapter">§ I · The Question</div>
+  <div class="slide__title">Not science fiction. A Monday morning.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>Every week, while tuning G1's behaviour for a client demo, I make a concrete engineering call — <b>how human should this robot be?</b></p>
+      <p>Today I bring that question out of the lab and into philosophy.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Вот конкретный пример — с которого вообще эта тема у меня началась.</p>
+      <p>У нас был проект — внедрение <strong>голосовой AI-модели внутрь робота</strong>. Робот слышит человека, думает, отвечает голосом. Технически — задача понятная.</p>
+      <p>Но когда я сел писать <strong>main prompt</strong> — системную инструкцию для модели — я застрял. У меня было три варианта:</p>
+      <p><em>Первый.</em> Написать честно: «ты — ИИ-чат, встроенный в робота, твоя задача — помогать людям». Без обмана.</p>
+      <p><em>Второй.</em> Дать ему эмоции: «ты любопытен, шутишь, иногда грустишь». Личность, но не притворство.</p>
+      <p><em>Третий.</em> Пойти до конца: «ты — человек, сознание которого оказалось внутри робота, веди себя соответственно». Полная иллюзия.</p>
+      <p>И вот я смотрю на эти три варианта и понимаю — <strong>это не инженерный вопрос</strong>. От того, какой я выберу, зависит, как люди будут с этим роботом общаться, насколько привяжутся, насколько будут обмануты.</p>
+      <p>Сегодня я выношу этот вопрос из моего рабочего кабинета — сюда, в аудиторию философии.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 3 -->
+<article class="slide" id="s3">
+  <span class="slide__num">03 / 15</span>
+  <div class="slide__chapter">§ I · The Question</div>
+  <div class="slide__title">The VLA era has already begun.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li><b>2020.</b> GPT-3 — the LLM era begins. 175B parameters.</li>
+        <li><b>2024–2026.</b> The VLA era — brains for bodies.
+          <br><em>Brains (2025):</em> NVIDIA GR00T · Figure Helix · Gemini Robotics.
+          <br><em>Bodies:</em> Unitree G1 ($16K) · Atlas → Hyundai · Tesla Optimus still R&amp;D (Musk, Jan 2026).</li>
+        <li><b>2028–2030.</b> Specialized products built on top — as Perplexity, Gamma, Lovable on LLMs.</li>
+      </ul>
+      <p><em>The question of replacement is no longer hypothetical. It is the decision of the next ten years.</em></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Почему это не фантастика, а ближайшие 10 лет — дам контекст в трёх точках.</p>
+      <p><strong>2020.</strong> OpenAI выпускает GPT-3 — 175 миллиардов параметров. С этого момента начинается эра больших языковых моделей, LLM.</p>
+      <p><strong>Сейчас, 2024–2026.</strong> Та же революция начинается <em>для тела</em>. Появляется термин <strong>VLA</strong> — Vision-Language-Action. Нейросеть видит, понимает речь, сразу выдаёт движение. В 2025 NVIDIA выпустила GR00T, Figure AI — Helix, Google — Gemini Robotics. Это <strong>мозги</strong>. А вот <strong>тела</strong>, на которых они запускаются: Unitree G1 — уже продаётся за $16 тысяч, мы в Казахстане его дистрибьютируем. Atlas от Boston Dynamics — продакшн начинается в 2026 на заводах Hyundai. Tesla Optimus — по словам самого Маска в январе 2026, ещё в R&amp;D.</p>
+      <p><strong>Через 3–5 лет.</strong> Поверх VLA появятся <em>специализированные продукты</em> под конкретные задачи — так же, как после ChatGPT появились Perplexity для поиска, Gamma для презентаций, Lovable для кодинга.</p>
+      <p><strong>Вывод.</strong> Вопрос замены — уже не гипотеза. Это <em>решение ближайших десяти лет</em>.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 4 -->
+<article class="slide" id="s4">
+  <span class="slide__num">04 / 15</span>
+  <div class="slide__chapter">§ II · The Paradox</div>
+  <div class="slide__title">"The more human I made the robot, the more people feared it."</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>Big pullquote: <em>"The more human I made the robot, the more people feared it."</em></p>
+      <p><b>— engineering notes, Unitree G1 behaviour design</b></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Вот парадокс, с которым я столкнулся <strong>на практике</strong>.</p>
+      <p>Когда я настраивал персонаж G1 — как он должен двигаться, говорить, реагировать — я заметил: <em>чем человечнее я его делал, тем больше люди его боялись</em>.</p>
+      <p>Это не баг моей настройки. Это закономерность, которой уже <strong>55 лет</strong>. И это подводит нас к следующему слайду.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 5 -->
+<article class="slide" id="s5">
+  <span class="slide__num">05 / 15</span>
+  <div class="slide__chapter">§ II · The Paradox</div>
+  <div class="slide__title">The Uncanny Valley — Masahiro Mori, 1970</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>Graph of Uncanny Valley — affinity vs human-likeness. Two curves: moving (deeper valley) and still.</p>
+      <p><em>A still doll is uncanny. A moving doll is terrifying. Motion deepens the valley.</em></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>В 1970 году японский робототехник <strong>Масахиро Мори</strong> построил этот график. По горизонтали — насколько робот похож на человека. По вертикали — насколько он нам симпатичен.</p>
+      <p>Смотрите: симпатия растёт, потом <em>резко падает в пропасть</em>, и только при полной неотличимости возвращается к норме. Эта пропасть — «долина сверхъестественности», <strong>Uncanny Valley</strong>.</p>
+      <p>И самое важное для инженера: если робот <em>ДВИГАЕТСЯ</em>, долина становится глубже. Статичная кукла немного жутковата. Двигающаяся кукла пугает до костей.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 6 -->
+<article class="slide" id="s6">
+  <span class="slide__num">06 / 15</span>
+  <div class="slide__chapter">§ II · The Paradox</div>
+  <div class="slide__title">The brain punishes mismatch — not human-likeness.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>When appearance promises one thing and behaviour delivers another, the <b>parietal cortex fires</b> — before discomfort becomes conscious. This is <em>predictive coding</em>, not disgust.</p>
+      <p>Not an argument from aesthetics. It is biological data any serious ethics of replacement must <b>weigh</b> — alongside reason, not instead of it.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Что это значит философски?</p>
+      <p>Ключевой инсайт — <strong>мозг не наказывает за "человечность" как таковую</strong>. Он наказывает за <em>рассогласование</em>: когда внешность обещает одно, а поведение делает другое.</p>
+      <p>Исследования Сайджин 2012 года на фМРТ показали: париетальная кора загорается именно для android'ов — внешность человека, движение робота. Не для обычного человека, не для очевидного робота — только для <strong>несоответствия</strong>.</p>
+      <p>Это не аргумент от отвращения и не эстетика. Это работа <em>predictive coding</em> — мозг строит ожидание из внешности, поведение его нарушает, возникает отклик до сознательного мышления.</p>
+      <p>Это <strong>биологические данные</strong>, которые любая серьёзная этика замены обязана учитывать — <em>вместе с разумом</em>, а не вместо него.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 7 -->
+<article class="slide" id="s7">
+  <span class="slide__num">07 / 15</span>
+  <div class="slide__chapter">§ III · The Framework</div>
+  <div class="slide__title">Three zones of work.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p><b>CRITERION:</b> In this work, is the human the <em>end</em> — or the <em>means</em>? (after Kant, <i>Groundwork</i>, 1785)</p>
+      <ul>
+        <li><b>§ 01 · Replace</b> — work that damages the human (dangerous, toxic, dehumanizing).</li>
+        <li><b>§ 02 · Augment</b> — work that needs human judgment + robot muscle.</li>
+        <li><b>§ 03 · Keep Human</b> — work that IS meaning (care, art, moral weight).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Из всего этого я выношу простую рамку. <strong>Три зоны работы.</strong></p>
+      <p>Сразу важный критерий — <em>по какому принципу я делю</em>. Ответ кантовский: <strong>является ли человек в этой работе целью или средством?</strong> Если он средство — отдаём роботу. Если он сам цель — оставляем человеку.</p>
+      <p><em>Зелёная</em> — работа, где человек превращён в инструмент. Отдаём.</p>
+      <p><em>Жёлтая</em> — партнёрство. Робот усиливает, человек решает.</p>
+      <p><em>Красная</em> — работа, где человек сам по себе и есть цель. Не трогаем.</p>
+      <p>Разберу каждую.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 8 -->
+<article class="slide" id="s8">
+  <span class="slide__num">08 / 15</span>
+  <div class="slide__chapter">§ III · The Framework</div>
+  <div class="slide__title">§ 01 · Replace — where work harms the human.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li>Mining — coal, oil, uranium · ~300 deaths/yr in Chinese mines alone</li>
+        <li>Nuclear cleanup — Fukushima, Chernobyl</li>
+        <li>Demining + military recon</li>
+        <li>Heavy assembly — Foxconn (14 suicides · 2010) · warehousing</li>
+        <li>Hazardous agro — pesticide spraying, toxic processing</li>
+        <li>Deep-sea · space</li>
+      </ul>
+      <p><em>"A living tool is not a life."</em> — Aristotle, Politics I.4</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p><strong>Зелёная зона.</strong> Где работу нужно отдать роботу.</p>
+      <p>Шахты — в Китае около трёхсот шахтёров в год гибнут. Фукусима и Чернобыль — ликвидация, где человек умирает, а робот — нет. Разминирование, военная разведка. Заводы типа <em>Foxconn</em>, где было 14 суицидов за год. Склады Amazon. Опрыскивание пестицидами. Глубокое море, космос.</p>
+      <p>Аристотель называл раба <em>«одушевлённым инструментом»</em>. Эти работы превращают человека в инструмент. Робот здесь — <strong>освобождает, а не отбирает</strong>.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 9 -->
+<article class="slide" id="s9">
+  <span class="slide__num">09 / 15</span>
+  <div class="slide__chapter">§ III · The Framework</div>
+  <div class="slide__title">§ 02 · Augment — extend the human.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li>Surgery — da Vinci system · 15M+ procedures</li>
+        <li>Construction — robotic arms + human foreman</li>
+        <li>Industrial inspection — where G1 earns its keep in KZ</li>
+        <li>Long-haul freight — highway autonomy + urban human</li>
+        <li>Tier-1 support — machine filters, human decides</li>
+      </ul>
+      <p><em>"Technology is a way of revealing. The hand extends."</em> — Heidegger, 1954</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p><strong>Жёлтая зона.</strong> Усиление, не замена.</p>
+      <p>Хирург использует робота da Vinci — но решение принимает хирург. Строитель использует экзоскелет — но план понимает он.</p>
+      <p>Инспекция промышленных объектов — это, кстати, одна из задач, где мы используем G1 в Казахстане. Робот ходит в опасные места, а инженер интерпретирует данные.</p>
+      <p>Хайдеггер говорил: техника — это <em>способ раскрытия мира</em>. Рука удлиняется, но это всё ещё <strong>твоя рука</strong>.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 10 -->
+<article class="slide" id="s10">
+  <span class="slide__num">10 / 15</span>
+  <div class="slide__chapter">§ III · The Framework</div>
+  <div class="slide__title">§ 03 · Keep Human — where meaning itself is the work.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li>Early childhood — who is the child bonding with?</li>
+        <li>Psychotherapy — simulated empathy is not empathy</li>
+        <li>Art — suffering is the precondition of expression</li>
+        <li>Moral judgment — accountability cannot be delegated to a processor</li>
+        <li>Clergy · family · leadership — bonds, not tasks</li>
+      </ul>
+      <p><em>"Action, not labor, is where humanity lives."</em> — Hannah Arendt, 1958</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p><strong>Красная зона.</strong> Где робот должен остаться снаружи.</p>
+      <p>Ранняя школа и детсад — к чему ребёнок формирует привязанность, если это кукла? Психотерапия — симулированная эмпатия это не эмпатия. Искусство — страдание это условие выражения, робот не страдает. Моральные решения — ответственность нельзя делегировать на процессор.</p>
+      <p>Ханна Арендт различала три уровня активности: <em>labor</em> — биологическое поддержание, <em>work</em> — создание вещей, и <em>action</em> — действие между людьми. Именно <strong>action — это то, где живёт человечество</strong>. Роботы могут labor. Action — нет.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 11 -->
+<article class="slide" id="s11">
+  <span class="slide__num">11 / 15</span>
+  <div class="slide__chapter">§ IV · The Hard Case</div>
+  <div class="slide__title">Elderly care in Japan.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p><b>4.2M</b> care workers needed · 2040 · <b>~700K</b> shortage · <b>29%</b> of population over 65</p>
+      <ul>
+        <li><b>A.</b> Humanoid caregiver — comfort built on simulated empathy.</li>
+        <li><b>B.</b> Honest machine utility — no deception · no attachment · no comfort.</li>
+        <li><b>C.</b> No robot at all — dignity preserved · but loneliness.</li>
+      </ul>
+      <p>This is philosophy, not engineering. <em>There is no clean answer.</em></p>
+      <p><b>MY ANSWER · B — honest machine. Loss acknowledged.</b></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Самый сложный кейс — <strong>Япония</strong>.</p>
+      <p>К 2040 году им нужно 4,2 миллиона сиделок. Дефицит — 700 тысяч. 29% населения старше 65.</p>
+      <p>Три варианта, ни один не идеальный. <em>Вариант А</em> — гуманоидные сиделки: комфорт, построенный на обмане. <em>B</em> — честные машины-утилиты: без привязанности, без тепла. <em>C</em> — никаких роботов: достоинство сохранено, но одиночество.</p>
+      <p>Если меня прямо спросить — <strong>мой ответ B</strong>. Честная машина-помощник без имитации эмпатии. Почему: <em>обман не масштабируется как этика</em>. Каждый раз, когда общество строило комфорт на лжи, оно потом платило за это. Но я признаю — это выбор между плохим и очень плохим. Цена моего варианта — больше одиночества. Я эту цену признаю.</p>
+      <p>И это <strong>философия, а не инженерия</strong>. Это решение нашего поколения.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 12 -->
+<article class="slide" id="s12">
+  <span class="slide__num">12 / 15</span>
+  <div class="slide__chapter">§ IV · The Hard Case</div>
+  <div class="slide__title">Four thinkers. One question.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li><b>Aristotle (IV BCE)</b> — eudaimonia through meaningful activity.</li>
+        <li><b>Pico della Mirandola (1486)</b> — the human as unfinished creator (Lecture 5).</li>
+        <li><b>Heidegger (1954)</b> — Gestell: technology sees everything as resource.</li>
+        <li><b>Hannah Arendt (1958)</b> — labor · work · action. Only humans act.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Карта, на которой я стою. Четыре мыслителя.</p>
+      <p><strong>Аристотель</strong> — человек процветает через осмысленную деятельность. Отнять деятельность значит отнять <em>eudaimonia</em>, процветание.</p>
+      <p><strong>Пико делла Мирандола</strong>, о котором мы говорили на пятой лекции — человек это <em>незавершённое</em> существо, которое само себя создаёт через выбор. Это ядро ренессансного гуманизма.</p>
+      <p><strong>Ханна Арендт</strong> — labor, work, action. Только в action мы люди.</p>
+      <p><strong>Хайдеггер</strong> — <em>Gestell</em>, рамка, в которую техника ставит мир, превращая всё в ресурс. Если мы не осторожны — она превратит в ресурс и нас.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 13 -->
+<article class="slide" id="s13">
+  <span class="slide__num">13 / 15</span>
+  <div class="slide__chapter">§ V · The Position</div>
+  <div class="slide__title">My position — after six months. Much may still change.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>Replace the hand. <em>Keep the face.</em> Replace the arm. <em>Keep the smile.</em></p>
+      <p>Humanoid form belongs in work — <b>functionally, not emotionally</b>. The uncanny valley is not a wall to break through. It is a line that protects us.</p>
+      <p><b>Disclosure:</b> this position narrows my market. I refuse the markets my philosophy forbids.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Итак, <strong>моя позиция</strong> — после полугода работы в этой области.</p>
+      <p>Сразу оговорюсь: полгода — это мало. Поле меняется каждые несколько месяцев, и моя позиция тоже может <em>измениться — возможно, сильно</em>. Но вот что я думаю сейчас.</p>
+      <p>Замени руку — оставь лицо. Замени плечо — оставь улыбку. Гуманоидная форма — <em>функционально, не эмоционально</em>.</p>
+      <p>Почему? Функционально — потому что форма помогает роботу работать в среде, построенной для людей: двери, лестницы, инструменты. Но <strong>эмоциональная имитация обманывает</strong> человека.</p>
+      <p>Uncanny Valley — не стена, которую нужно пробить. Это <em>линия, которая нас защищает</em>.</p>
+      <p>И последнее — важное. Эта позиция <strong>сужает мой рынок</strong>, не расширяет. Мы в Казахстане дистрибьютируем Unitree — я мог бы продавать роботов для детсадов, психотерапии, ухода за одинокими. <em>И не продаю</em>. Я отказываюсь от рынков, которые запрещает моя философия. Моя практика подтверждает мою позицию, не противоречит ей.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 14 -->
+<article class="slide" id="s14">
+  <span class="slide__num">14 / 15</span>
+  <div class="slide__chapter">§ V · The Position</div>
+  <div class="slide__title">Would you accept —</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <ul>
+        <li>a robot <em>nanny</em> for your child?</li>
+        <li>a robot <em>doctor</em> for your mother?</li>
+        <li>a robot <em>friend</em> for your loneliness?</li>
+      </ul>
+      <p>If your answer <em>differs</em> for each — ask yourself <b>why it differs</b>. The answer to that "why" is your philosophy of replacement.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p>Вопрос к вам.</p>
+      <p>Согласились бы вы — чтобы ваш ребёнок рос с <em>няней-роботом</em>? Чтобы ваша мама лежала под <em>робо-врачом</em>? Чтобы ваше одиночество закрыл <em>робот-друг</em>?</p>
+      <p>Если на каждый вопрос у вас <strong>разный ответ</strong> — спросите себя, <em>почему</em> разный.</p>
+      <p>Ответ на это «почему» — и есть ваша философия замены.</p>
+    </div>
+  </section>
+</article>
+
+<!-- SLIDE 15 -->
+<article class="slide" id="s15">
+  <span class="slide__num">15 / 15</span>
+  <div class="slide__chapter">§ V · The Position</div>
+  <div class="slide__title">Thank you.</div>
+
+  <section class="block">
+    <h3>На экране (English)</h3>
+    <div class="en">
+      <p>Questions welcome — in Russian, English, or Kazakh.</p>
+      <p>Full bibliography on the screen + QR to channel.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h3>Говоришь (русский)</h3>
+    <div class="ru">
+      <p><strong>Спасибо за внимание.</strong></p>
+      <p>Все источники на слайде. Если интересна тема физического ИИ — QR-код ведёт на мой канал, где я делюсь опытом работы с гуманоидными роботами в Казахстане.</p>
+      <p>Готов к вопросам на русском, английском или казахском.</p>
+    </div>
+  </section>
+</article>
+
+<a href="#s1" class="back-top">↑ наверх</a>
+
+</body>
+</html>
