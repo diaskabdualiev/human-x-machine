@@ -982,8 +982,7 @@ body::before {
 .slide--map { gap: clamp(20px, 3vh, 32px); }
 .map {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 2vw, 28px);
   flex: 1;
   min-height: 0;
