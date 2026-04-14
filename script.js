@@ -1,0 +1,256 @@
+/* ════════════════════════════════════════════════════════════════════
+   HUMAN × MACHINE — presentation controller
+   ──────────────────────────────────────────────────────────────────── */
+
+(() => {
+  "use strict";
+
+  /* ── RU speaker notes (вся русская речь — телепромптер) ── */
+  const NOTES = {
+    1: `<p><strong>Здравствуйте.</strong> Меня зовут <em>Диас Кабдуалиев</em>. Я руковожу компанией <strong>Alashed</strong> — мы занимаемся образовательными наборами по робототехнике для школ и университетов, выпускаем наборы собственной разработки. А также мы — <strong>официальные дистрибьюторы роботов Unitree в Казахстане</strong>.</p>
+<p>Последние <strong>полгода</strong> я работаю с гуманоидным роботом <em>Unitree G1</em>. За это же время занял <strong>второе место в Physical AI Championship</strong>, участвуя в одиночку.</p>
+<p>Сегодня я хочу обсудить с вами вопрос, с которым столкнулся за эти полгода — <em>не в книжках, а на практике</em>: должны ли гуманоидные роботы заменить человека в повседневной работе?</p>`,
+
+    2: `<p>Вот конкретный пример — с которого вообще эта тема у меня началась.</p>
+<p>У нас был проект — внедрение <strong>голосовой AI-модели внутрь робота</strong>. Робот слышит человека, думает, отвечает голосом. Технически — задача понятная.</p>
+<p>Но когда я сел писать <strong>main prompt</strong> — системную инструкцию для модели — я застрял. У меня было три варианта:</p>
+<p><em>Первый.</em> Написать честно: «ты — ИИ-чат, встроенный в робота, твоя задача — помогать людям». Без обмана.</p>
+<p><em>Второй.</em> Дать ему эмоции: «ты любопытен, шутишь, иногда грустишь». Личность, но не притворство.</p>
+<p><em>Третий.</em> Пойти до конца: «ты — человек, сознание которого оказалось внутри робота, веди себя соответственно». Полная иллюзия.</p>
+<p>И вот я смотрю на эти три варианта и понимаю — <strong>это не инженерный вопрос</strong>. От того, какой я выберу, зависит, как люди будут с этим роботом общаться, насколько привяжутся, насколько будут обмануты.</p>
+<p>Сегодня я выношу этот вопрос из моего рабочего кабинета — сюда, в аудиторию философии.</p>`,
+
+    3: `<p>Почему это не фантастика, а ближайшие 10 лет — дам контекст в трёх точках.</p>
+<p><strong>2020.</strong> OpenAI выпускает GPT-3 — 175 миллиардов параметров. С этого момента начинается эра больших языковых моделей, LLM.</p>
+<p><strong>Сейчас, 2024–2026.</strong> Та же революция начинается <em>для тела</em>. Появляется термин <strong>VLA</strong> — Vision-Language-Action. Нейросеть видит, понимает речь, сразу выдаёт движение. В 2025 NVIDIA выпустила GR00T, Figure AI — Helix, Google — Gemini Robotics. Это <strong>мозги</strong>. А вот <strong>тела</strong>, на которых они запускаются: Unitree G1 — уже продаётся за $16 тысяч, мы в Казахстане его дистрибьютируем. Atlas от Boston Dynamics — продакшн начинается в 2026 на заводах Hyundai. Tesla Optimus — по словам самого Маска в январе 2026, ещё в R&amp;D.</p>
+<p><strong>Через 3–5 лет.</strong> Поверх VLA появятся <em>специализированные продукты</em> под конкретные задачи — так же, как после ChatGPT появились Perplexity для поиска, Gamma для презентаций, Lovable для кодинга.</p>
+<p><strong>Вывод.</strong> Вопрос замены — уже не гипотеза. Это <em>решение ближайших десяти лет</em>.</p>`,
+
+    4: `<p>Вот парадокс, с которым я столкнулся <strong>на практике</strong>.</p>
+<p>Когда я настраивал персонаж G1 — как он должен двигаться, говорить, реагировать — я заметил: <em>чем человечнее я его делал, тем больше люди его боялись</em>.</p>
+<p>Это не баг моей настройки. Это закономерность, которой уже <strong>55 лет</strong>. И это подводит нас к следующему слайду.</p>`,
+
+    5: `<p>В 1970 году японский робототехник <strong>Масахиро Мори</strong> построил этот график. По горизонтали — насколько робот похож на человека. По вертикали — насколько он нам симпатичен.</p>
+<p>Смотрите: симпатия растёт, потом <em>резко падает в пропасть</em>, и только при полной неотличимости возвращается к норме. Эта пропасть — «долина сверхъестественности», <strong>Uncanny Valley</strong>.</p>
+<p>И самое важное для инженера: если робот <em>ДВИГАЕТСЯ</em>, долина становится глубже. Статичная кукла немного жутковата. Двигающаяся кукла пугает до костей.</p>`,
+
+    6: `<p>Что это значит философски?</p>
+<p>Ключевой инсайт — <strong>мозг не наказывает за "человечность" как таковую</strong>. Он наказывает за <em>рассогласование</em>: когда внешность обещает одно, а поведение делает другое.</p>
+<p>Исследования Сайджин 2012 года на фМРТ показали: париетальная кора загорается именно для android'ов — внешность человека, движение робота. Не для обычного человека, не для очевидного робота — только для <strong>несоответствия</strong>.</p>
+<p>Это не аргумент от отвращения и не эстетика. Это работа <em>predictive coding</em> — мозг строит ожидание из внешности, поведение его нарушает, возникает отклик до сознательного мышления.</p>
+<p>Это <strong>биологические данные</strong>, которые любая серьёзная этика замены обязана учитывать — <em>вместе с разумом</em>, а не вместо него.</p>`,
+
+    7: `<p>Из всего этого я выношу простую рамку. <strong>Три зоны работы.</strong></p>
+<p>Сразу важный критерий — <em>по какому принципу я делю</em>. Ответ кантовский: <strong>является ли человек в этой работе целью или средством?</strong> Если он средство — отдаём роботу. Если он сам цель — оставляем человеку.</p>
+<p><em>Зелёная</em> — работа, где человек превращён в инструмент. Отдаём.</p>
+<p><em>Жёлтая</em> — партнёрство. Робот усиливает, человек решает.</p>
+<p><em>Красная</em> — работа, где человек сам по себе и есть цель. Не трогаем.</p>
+<p>Разберу каждую.</p>`,
+
+    8: `<p><strong>Зелёная зона.</strong> Где работу нужно отдать роботу.</p>
+<p>Шахты — в Китае около трёхсот шахтёров в год гибнут. Фукусима и Чернобыль — ликвидация, где человек умирает, а робот — нет. Разминирование, военная разведка. Заводы типа <em>Foxconn</em>, где было 14 суицидов за год. Склады Amazon. Опрыскивание пестицидами. Глубокое море, космос.</p>
+<p>Аристотель называл раба <em>«одушевлённым инструментом»</em>. Эти работы превращают человека в инструмент. Робот здесь — <strong>освобождает, а не отбирает</strong>.</p>`,
+
+    9: `<p><strong>Жёлтая зона.</strong> Усиление, не замена.</p>
+<p>Хирург использует робота da Vinci — но решение принимает хирург. Строитель использует экзоскелет — но план понимает он.</p>
+<p>Инспекция промышленных объектов — это, кстати, одна из задач, где мы используем G1 в Казахстане. Робот ходит в опасные места, а инженер интерпретирует данные.</p>
+<p>Хайдеггер говорил: техника — это <em>способ раскрытия мира</em>. Рука удлиняется, но это всё ещё <strong>твоя рука</strong>.</p>`,
+
+    10: `<p><strong>Красная зона.</strong> Где робот должен остаться снаружи.</p>
+<p>Ранняя школа и детсад — к чему ребёнок формирует привязанность, если это кукла? Психотерапия — симулированная эмпатия это не эмпатия. Искусство — страдание это условие выражения, робот не страдает. Моральные решения — ответственность нельзя делегировать на процессор.</p>
+<p>Ханна Арендт различала три уровня активности: <em>labor</em> — биологическое поддержание, <em>work</em> — создание вещей, и <em>action</em> — действие между людьми. Именно <strong>action — это то, где живёт человечество</strong>. Роботы могут labor. Action — нет.</p>`,
+
+    11: `<p>Самый сложный кейс — <strong>Япония</strong>.</p>
+<p>К 2040 году им нужно 4,2 миллиона сиделок. Дефицит — 700 тысяч. 29% населения старше 65.</p>
+<p>Три варианта, ни один не идеальный. <em>Вариант А</em> — гуманоидные сиделки: комфорт, построенный на обмане. <em>B</em> — честные машины-утилиты: без привязанности, без тепла. <em>C</em> — никаких роботов: достоинство сохранено, но одиночество.</p>
+<p>Если меня прямо спросить — <strong>мой ответ B</strong>. Честная машина-помощник без имитации эмпатии. Почему: <em>обман не масштабируется как этика</em>. Каждый раз, когда общество строило комфорт на лжи, оно потом платило за это. Но я признаю — это выбор между плохим и очень плохим. Цена моего варианта — больше одиночества. Я эту цену признаю.</p>
+<p>И это <strong>философия, а не инженерия</strong>. Это решение нашего поколения.</p>`,
+
+    12: `<p>Карта, на которой я стою. Четыре мыслителя.</p>
+<p><strong>Аристотель</strong> — человек процветает через осмысленную деятельность. Отнять деятельность значит отнять <em>eudaimonia</em>, процветание.</p>
+<p><strong>Пико делла Мирандола</strong>, о котором мы говорили на пятой лекции — человек это <em>незавершённое</em> существо, которое само себя создаёт через выбор. Это ядро ренессансного гуманизма.</p>
+<p><strong>Ханна Арендт</strong> — labor, work, action. Только в action мы люди.</p>
+<p><strong>Хайдеггер</strong> — <em>Gestell</em>, рамка, в которую техника ставит мир, превращая всё в ресурс. Если мы не осторожны — она превратит в ресурс и нас.</p>`,
+
+    13: `<p>Итак, <strong>моя позиция</strong> — после полугода работы в этой области.</p>
+<p>Сразу оговорюсь: полгода — это мало. Поле меняется каждые несколько месяцев, и моя позиция тоже может <em>измениться — возможно, сильно</em>. Но вот что я думаю сейчас.</p>
+<p>Замени руку — оставь лицо. Замени плечо — оставь улыбку. Гуманоидная форма — <em>функционально, не эмоционально</em>.</p>
+<p>Почему? Функционально — потому что форма помогает роботу работать в среде, построенной для людей: двери, лестницы, инструменты. Но <strong>эмоциональная имитация обманывает</strong> человека.</p>
+<p>Uncanny Valley — не стена, которую нужно пробить. Это <em>линия, которая нас защищает</em>.</p>
+<p>И последнее — важное. Эта позиция <strong>сужает мой рынок</strong>, не расширяет. Мы в Казахстане дистрибьютируем Unitree — я мог бы продавать роботов для детсадов, психотерапии, ухода за одинокими. <em>И не продаю</em>. Я отказываюсь от рынков, которые запрещает моя философия. Моя практика подтверждает мою позицию, не противоречит ей.</p>`,
+
+    14: `<p>Вопрос к вам.</p>
+<p>Согласились бы вы — чтобы ваш ребёнок рос с <em>няней-роботом</em>? Чтобы ваша мама лежала под <em>робо-врачом</em>? Чтобы ваше одиночество закрыл <em>робот-друг</em>?</p>
+<p>Если на каждый вопрос у вас <strong>разный ответ</strong> — спросите себя, <em>почему</em> разный.</p>
+<p>Ответ на это «почему» — и есть ваша философия замены.</p>`,
+
+    15: `<p><strong>Спасибо за внимание.</strong></p>
+<p>Все источники на слайде. Если интересна тема физического ИИ — QR-код ведёт на мой канал, где я делюсь опытом работы с гуманоидными роботами в Казахстане.</p>
+<p>Готов к вопросам на русском, английском или казахском.</p>`
+  };
+
+  /* ── Elements ── */
+  const $ = (sel, el = document) => el.querySelector(sel);
+  const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+
+  const stage       = $("#stage");
+  const slides      = $$(".slide", stage);
+  const counterEl   = $("#counter");
+  const progressEl  = $("#progress-bar");
+  const srcEl       = $("#src-text");
+  const chapterEl   = $("#chapter-label");
+  const notesEl     = $("#notes");
+  const notesBody   = $("#notes-body");
+  const notesNum    = $("#notes-num");
+  const notesChapter = $("#notes-chapter");
+  const notesToggle = $("#notes-handle");
+  const notesClose  = $("#notes-close");
+  const srcMap      = $$("#sources-map data").reduce((acc, el) => {
+    acc[el.dataset.slide] = el.textContent.trim();
+    return acc;
+  }, {});
+
+  const TOTAL = slides.length;
+  let current = 1;
+
+  /* ── Navigation ── */
+  const pad = (n) => String(n).padStart(2, "0");
+
+  function go(n) {
+    const idx = Math.max(1, Math.min(TOTAL, n));
+    if (idx === current) return;
+    current = idx;
+    render();
+  }
+
+  function render() {
+    slides.forEach((s) => {
+      const isActive = Number(s.dataset.slide) === current;
+      s.classList.toggle("is-active", isActive);
+    });
+
+    const slide = slides[current - 1];
+    counterEl.innerHTML = `${pad(current)}<i>/</i>${pad(TOTAL)}`;
+    progressEl.style.width = `${(current / TOTAL) * 100}%`;
+    srcEl.textContent = srcMap[current] || "—";
+    chapterEl.textContent = `§ ${slide.dataset.chapter.toUpperCase()}`;
+
+    notesBody.innerHTML = NOTES[current] || "";
+    notesNum.textContent = pad(current);
+    notesChapter.textContent = `§ ${slide.dataset.chapter}`;
+
+    document.body.dataset.slide = current;
+    window.location.hash = `s${current}`;
+  }
+
+  function next() { go(current + 1); }
+  function prev() { go(current - 1); }
+
+  /* ── Notes panel ── */
+  function openNotes() {
+    notesEl.dataset.open = "true";
+    notesEl.setAttribute("aria-hidden", "false");
+  }
+  function closeNotes() {
+    notesEl.dataset.open = "false";
+    notesEl.setAttribute("aria-hidden", "true");
+  }
+  function toggleNotes() {
+    notesEl.dataset.open === "true" ? closeNotes() : openNotes();
+  }
+
+  notesToggle.addEventListener("click", toggleNotes);
+  notesClose.addEventListener("click", closeNotes);
+
+  /* ── Key flash (tiny visual when you press R) ── */
+  function flashKey(char) {
+    const el = document.createElement("div");
+    el.className = "key-flash";
+    el.textContent = char;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 720);
+  }
+
+  /* ── Keyboard ── */
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    switch (e.key) {
+      case "ArrowRight":
+      case "PageDown":
+      case " ":
+        e.preventDefault(); next(); break;
+      case "ArrowLeft":
+      case "PageUp":
+        e.preventDefault(); prev(); break;
+      case "Home":
+        e.preventDefault(); go(1); break;
+      case "End":
+        e.preventDefault(); go(TOTAL); break;
+      case "r":
+      case "R":
+      case "к":
+      case "К":
+        e.preventDefault();
+        toggleNotes();
+        flashKey("R");
+        break;
+      case "Escape":
+        if (notesEl.dataset.open === "true") closeNotes();
+        break;
+      case "f":
+      case "F":
+      case "а":
+      case "А":
+        if (document.fullscreenElement) document.exitFullscreen();
+        else document.documentElement.requestFullscreen?.();
+        break;
+      default:
+        if (/^[1-9]$/.test(e.key)) {
+          go(Number(e.key));
+        }
+    }
+  });
+
+  /* ── Click / tap navigation (right half = next, left half = prev) ── */
+  stage.addEventListener("click", (e) => {
+    if (notesEl.dataset.open === "true") return;
+    const x = e.clientX / window.innerWidth;
+    if (x > 0.65) next();
+    else if (x < 0.35) prev();
+  });
+
+  /* ── Touch swipe ── */
+  let touchX = null;
+  document.addEventListener("touchstart", (e) => {
+    touchX = e.touches[0].clientX;
+  }, { passive: true });
+  document.addEventListener("touchend", (e) => {
+    if (touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+    touchX = null;
+  });
+
+  /* ── Deep link via hash ── */
+  function fromHash() {
+    const m = /^#s(\d+)$/.exec(window.location.hash);
+    if (m) go(Number(m[1]));
+  }
+  window.addEventListener("hashchange", fromHash);
+
+  /* ── Boot ── */
+  fromHash();
+  render();
+
+  /* ── Tiny console cheatsheet for the presenter ── */
+  console.log(
+    "%cHUMAN × MACHINE%c\n" +
+      "→ → ← ← for navigation\n" +
+      "R — toggle Russian speaker notes\n" +
+      "F — fullscreen\n" +
+      "1–9 — jump to slide\n" +
+      "Esc — close notes",
+    "color:#dc5f24;font:bold 14px system-ui",
+    "color:inherit;font:12px ui-monospace"
+  );
+})();

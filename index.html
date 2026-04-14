@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Should Humanoid Robots Replace Humans in Everyday Work? — MDE 172</title>
+<meta name="description" content="A philosophy project by a Physical AI Engineer. Unitree G1, the Uncanny Valley, and the three zones of human work.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="deck" data-slide="1">
+
+<!-- TOP HUD -->
+<header class="hud hud--top" aria-hidden="true">
+  <div class="hud__left">
+    <span class="mark">HUMAN</span>
+    <span class="mark__x">×</span>
+    <span class="mark">MACHINE</span>
+  </div>
+  <div class="hud__center">
+    <span class="meta">MDE 172 · PHILOSOPHY PROJECT · 2026</span>
+  </div>
+  <div class="hud__right">
+    <span class="meta" id="chapter-label">§ I · THE QUESTION</span>
+  </div>
+</header>
+
+<!-- GRAIN + CORNERS -->
+<div class="grain" aria-hidden="true"></div>
+<div class="reticle reticle--tl" aria-hidden="true"></div>
+<div class="reticle reticle--tr" aria-hidden="true"></div>
+<div class="reticle reticle--bl" aria-hidden="true"></div>
+<div class="reticle reticle--br" aria-hidden="true"></div>
+
+<!-- STAGE -->
+<main class="stage" id="stage">
+
+  <!-- ═══════════ SLIDE 01 · TITLE ═══════════ -->
+  <section class="slide slide--hero" data-slide="1" data-chapter="I · The Question">
+    <div class="hero__media">
+      <div class="media-slot media-slot--wide media-slot--filled">
+        <video src="slide1.mp4" autoplay muted loop playsinline preload="auto"></video>
+      </div>
+    </div>
+
+    <div class="hero__text">
+      <div class="eyebrow">A philosophy project · MDE 172 · Spring 2026</div>
+      <h1 class="display display--xl">
+        Should humanoid robots<br>
+        <em class="em">replace&nbsp;humans</em><br>
+        in everyday work?
+      </h1>
+      <div class="byline">
+        <span class="byline__name">Dias Kabdualiyev</span>
+        <span class="byline__sep">—</span>
+        <span class="byline__role">Director · Alashed Robotics</span>
+      </div>
+      <ul class="credentials">
+        <li><span class="ck">◉</span> Alashed — educational robotics kits · own design · schools &amp; universities</li>
+        <li><span class="ck">◉</span> Official Unitree distributor · Kazakhstan</li>
+        <li><span class="ck">◉</span> 2<sup>nd</sup> place · Physical AI Championship (solo entry) · 2025</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 02 · NOT FICTION ═══════════ -->
+  <section class="slide slide--statement" data-slide="2" data-chapter="I · The Question">
+    <div class="statement">
+      <div class="eyebrow">The premise</div>
+      <h2 class="display display--xl">
+        Not science fiction.<br>
+        <em class="em em--accent">A Monday&nbsp;morning.</em>
+      </h2>
+      <div class="lead">
+        <p>Every week, while tuning G1's behaviour for a client demo, I make a concrete engineering call — <span class="hl">how&nbsp;human should this robot be?</span></p>
+        <p>Today I bring that question out of the lab and into philosophy.</p>
+      </div>
+    </div>
+    <aside class="marginalia">
+      <span class="marginalia__k">01</span>
+      <span class="marginalia__t">engineering choice as philosophical act</span>
+    </aside>
+  </section>
+
+  <!-- ═══════════ SLIDE 03 · VLA ERA ═══════════ -->
+  <section class="slide slide--timeline" data-slide="3" data-chapter="I · The Question">
+    <header class="slide__head">
+      <div class="eyebrow">Context · why this question matters now</div>
+      <h2 class="display">The&nbsp;<em class="em">VLA era</em>&nbsp;has already begun.</h2>
+    </header>
+
+    <ol class="timeline">
+      <li class="timeline__row">
+        <span class="timeline__year">2020</span>
+        <span class="timeline__dot"></span>
+        <span class="timeline__body">
+          <b>GPT-3 — the LLM era begins.</b>
+          175&nbsp;billion parameters. Language becomes a general substrate.
+        </span>
+      </li>
+      <li class="timeline__row timeline__row--now">
+        <span class="timeline__year">2024&nbsp;–&nbsp;2026</span>
+        <span class="timeline__dot timeline__dot--live"></span>
+        <span class="timeline__body">
+          <b>The VLA era begins — brains for bodies.</b>
+          <i>Brains (2025):</i> NVIDIA GR00T · Figure Helix · Google Gemini Robotics.
+          <i>Bodies:</i> Unitree G1 shipping at $16K · Atlas into Hyundai production · Tesla Optimus still R&amp;D (Musk, Jan&nbsp;2026).
+        </span>
+      </li>
+      <li class="timeline__row">
+        <span class="timeline__year">2028&nbsp;–&nbsp;2030</span>
+        <span class="timeline__dot"></span>
+        <span class="timeline__body">
+          <b>Specialized products built on top.</b>
+          As Perplexity, Gamma, and Lovable built on LLMs — task-specific apps will build on VLA.
+        </span>
+      </li>
+    </ol>
+
+    <div class="verdict">
+      The question of replacement is no longer hypothetical.<br>
+      It is <em class="em">the decision of the next ten years</em>.
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 04 · PARADOX ═══════════ -->
+  <section class="slide slide--pullquote" data-slide="4" data-chapter="II · The Paradox">
+    <div class="pq">
+      <span class="pq__mark">“</span>
+      <blockquote class="pq__quote">
+        The more human I made the&nbsp;robot,<br>
+        <em class="em em--accent">the more people feared it.</em>
+      </blockquote>
+      <cite class="pq__cite">— engineering notes, Unitree G1 behaviour design</cite>
+    </div>
+    <div class="pq__media">
+      <div class="media-slot">
+        <div class="media-slot__label"><span class="dot"></span><span>media/04_you_and_g1.jpg</span></div>
+        <div class="media-slot__hint">photo: you + G1 in the lab</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 05 · UNCANNY VALLEY ═══════════ -->
+  <section class="slide slide--graph" data-slide="5" data-chapter="II · The Paradox">
+    <header class="slide__head">
+      <div class="eyebrow">Masahiro Mori · 1970</div>
+      <h2 class="display">The&nbsp;<em class="em">Uncanny Valley</em>.</h2>
+    </header>
+
+    <figure class="uv">
+      <svg class="uv__svg" viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="valleyFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- grid -->
+        <g class="uv__grid">
+          <line x1="80" y1="220" x2="860" y2="220"/>
+          <line x1="80" y1="40"  x2="80"  y2="420"/>
+        </g>
+
+        <!-- zero line label -->
+        <text x="66" y="225" class="uv__axis-text" text-anchor="end">0</text>
+        <text x="66" y="55" class="uv__axis-text" text-anchor="end">+</text>
+        <text x="66" y="415" class="uv__axis-text" text-anchor="end">−</text>
+
+        <!-- valley highlight -->
+        <path class="uv__valley" d="M 520 220 L 520 360 Q 580 410 640 360 L 640 220 Z" fill="url(#valleyFill)"/>
+
+        <!-- moving curve (deeper valley) -->
+        <path class="uv__curve uv__curve--moving"
+              d="M 100 210 C 200 150, 320 120, 440 140 C 500 155, 520 220, 560 360 C 600 400, 640 380, 680 220 C 720 80, 780 60, 840 55"
+              fill="none"/>
+
+        <!-- still curve (shallower) -->
+        <path class="uv__curve uv__curve--still"
+              d="M 100 215 C 200 180, 320 165, 440 175 C 500 185, 530 220, 570 300 C 610 340, 640 320, 680 220 C 720 140, 780 125, 840 118"
+              fill="none"/>
+
+        <!-- axis labels -->
+        <text x="470" y="435" class="uv__axis-title" text-anchor="middle">HUMAN LIKENESS →</text>
+        <g transform="translate(28 230) rotate(-90)">
+          <text class="uv__axis-title" text-anchor="middle">AFFINITY →</text>
+        </g>
+
+        <!-- markers -->
+        <g class="uv__pts">
+          <circle cx="180" cy="195" r="4"/>
+          <text x="180" y="180" text-anchor="middle">industrial robot</text>
+
+          <circle cx="360" cy="142" r="4"/>
+          <text x="360" y="128" text-anchor="middle">humanoid toy</text>
+
+          <circle cx="580" cy="355" r="5"/>
+          <text x="580" y="388" text-anchor="middle">bunraku · prosthetic · corpse</text>
+
+          <circle cx="820" cy="60" r="4"/>
+          <text x="820" y="45" text-anchor="middle">healthy human</text>
+        </g>
+
+        <!-- legend -->
+        <g class="uv__legend" transform="translate(600 40)">
+          <line x1="0" x2="22" y1="6" y2="6" class="leg leg--moving"/>
+          <text x="30" y="10">moving</text>
+          <line x1="110" x2="132" y1="6" y2="6" class="leg leg--still"/>
+          <text x="140" y="10">still</text>
+        </g>
+      </svg>
+
+      <figcaption class="uv__caption">
+        A still doll is uncanny. <em class="em">A moving doll is terrifying.</em><br>
+        Motion deepens the valley.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ═══════════ SLIDE 06 · WHAT IT MEANS ═══════════ -->
+  <section class="slide slide--statement" data-slide="6" data-chapter="II · The Paradox">
+    <div class="statement">
+      <div class="eyebrow">The philosophical claim</div>
+      <h2 class="display display--xl">
+        The brain punishes <em class="em em--accent">mismatch</em> —<br>
+        not human-likeness.
+      </h2>
+      <div class="lead lead--wide">
+        <p>When appearance promises one thing and behaviour delivers another, the <span class="hl">parietal cortex fires</span> — before the discomfort becomes conscious. This is <em class="em">predictive coding</em>, not disgust.</p>
+        <p>Not an argument from aesthetics. It is biological data any serious ethics of replacement must <span class="hl">weigh</span> — alongside reason, not instead of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 07 · THREE ZONES ═══════════ -->
+  <section class="slide slide--framework" data-slide="7" data-chapter="III · The Framework">
+    <header class="slide__head">
+      <div class="eyebrow">The framework I propose</div>
+      <h2 class="display">Three <em class="em">zones</em> of work.</h2>
+      <p class="criterion">
+        <span class="criterion__label">Criterion</span>
+        In this work, is the human the <em class="em">end</em> — or the <em class="em">means</em>?
+        <span class="criterion__src">— after Kant, <i>Groundwork</i>, 1785</span>
+      </p>
+    </header>
+
+    <div class="zones">
+      <article class="zone zone--green">
+        <div class="zone__num">§ 01</div>
+        <div class="zone__marker"></div>
+        <h3 class="zone__title">Replace</h3>
+        <p class="zone__tag">Work that damages the human.</p>
+        <p class="zone__body">Dangerous, toxic, repetitive, dehumanizing. The robot liberates.</p>
+      </article>
+
+      <article class="zone zone--yellow">
+        <div class="zone__num">§ 02</div>
+        <div class="zone__marker"></div>
+        <h3 class="zone__title">Augment</h3>
+        <p class="zone__tag">Work that needs human judgment.</p>
+        <p class="zone__body">Physical capability from the robot. The decision stays with the person.</p>
+      </article>
+
+      <article class="zone zone--red">
+        <div class="zone__num">§ 03</div>
+        <div class="zone__marker"></div>
+        <h3 class="zone__title">Keep&nbsp;Human</h3>
+        <p class="zone__tag">Work that is meaning.</p>
+        <p class="zone__body">Care, art, moral weight, relationships. Replacement is loss, not gain.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 08 · GREEN ZONE ═══════════ -->
+  <section class="slide slide--zone slide--zone-green" data-slide="8" data-chapter="III · The Framework">
+    <div class="zone-page">
+      <header class="zone-page__head">
+        <span class="zone-page__chip zone-page__chip--green">ZONE&nbsp;§&nbsp;01</span>
+        <h2 class="display">Replace</h2>
+        <p class="subtitle"><em class="em">Where work harms the human, the robot liberates.</em></p>
+      </header>
+
+      <ul class="bullets">
+        <li><span class="bullets__lbl">MINING</span> — coal, oil, uranium · ~300 deaths/yr in Chinese mines alone</li>
+        <li><span class="bullets__lbl">NUCLEAR CLEANUP</span> — Fukushima, Chernobyl decommissioning</li>
+        <li><span class="bullets__lbl">DEMINING + RECON</span> — military and post-conflict</li>
+        <li><span class="bullets__lbl">HEAVY ASSEMBLY</span> — Foxconn (14 suicides · 2010) · warehousing</li>
+        <li><span class="bullets__lbl">HAZARDOUS AGRO</span> — pesticide spraying, toxic processing</li>
+        <li><span class="bullets__lbl">DEEP-SEA · SPACE</span> — environments human bodies cannot survive</li>
+      </ul>
+
+      <div class="aphorism">
+        <blockquote>"A living tool is not a life."</blockquote>
+        <cite>— Aristotle, <i>Politics</i> I.4  ·  ὄργανον ἔμψυχον</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 09 · YELLOW ZONE ═══════════ -->
+  <section class="slide slide--zone slide--zone-yellow" data-slide="9" data-chapter="III · The Framework">
+    <div class="zone-page">
+      <header class="zone-page__head">
+        <span class="zone-page__chip zone-page__chip--yellow">ZONE&nbsp;§&nbsp;02</span>
+        <h2 class="display">Augment</h2>
+        <p class="subtitle"><em class="em">Extend the human — do not erase them.</em></p>
+      </header>
+
+      <div class="aug-grid">
+        <ul class="bullets">
+          <li><span class="bullets__lbl">SURGERY</span> — da Vinci system · 15M+ procedures to date</li>
+          <li><span class="bullets__lbl">CONSTRUCTION</span> — robotic arms + human foreman</li>
+          <li><span class="bullets__lbl">INDUSTRIAL INSPECTION</span> — where G1 earns its keep in KZ</li>
+          <li><span class="bullets__lbl">LONG-HAUL FREIGHT</span> — highway autonomy + urban human</li>
+          <li><span class="bullets__lbl">TIER-1 SUPPORT</span> — machine filters, human decides</li>
+        </ul>
+        <div class="media-slot media-slot--tall">
+          <div class="media-slot__label"><span class="dot"></span><span>media/09_g1_inspection.jpg</span></div>
+          <div class="media-slot__hint">G1 doing industrial inspection</div>
+        </div>
+      </div>
+
+      <div class="aphorism">
+        <blockquote>"Technology is a way of revealing. The hand extends."</blockquote>
+        <cite>— Martin Heidegger, <i>The Question Concerning Technology</i> · 1954</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 10 · RED ZONE ═══════════ -->
+  <section class="slide slide--zone slide--zone-red" data-slide="10" data-chapter="III · The Framework">
+    <div class="zone-page">
+      <header class="zone-page__head">
+        <span class="zone-page__chip zone-page__chip--red">ZONE&nbsp;§&nbsp;03</span>
+        <h2 class="display">Keep Human</h2>
+        <p class="subtitle"><em class="em">Where meaning itself is the work.</em></p>
+      </header>
+
+      <ul class="bullets">
+        <li><span class="bullets__lbl">EARLY CHILDHOOD</span> — who is the child bonding with?</li>
+        <li><span class="bullets__lbl">PSYCHOTHERAPY</span> — simulated empathy is not empathy</li>
+        <li><span class="bullets__lbl">ART</span> — suffering is the precondition of expression</li>
+        <li><span class="bullets__lbl">MORAL JUDGMENT</span> — accountability cannot be delegated to a processor</li>
+        <li><span class="bullets__lbl">CLERGY · FAMILY · LEADERSHIP</span> — bonds, not tasks</li>
+      </ul>
+
+      <div class="aphorism">
+        <blockquote>"Action, not labor, is where humanity lives."</blockquote>
+        <cite>— Hannah Arendt, <i>The Human Condition</i> · 1958</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 11 · HARD CASE — JAPAN ═══════════ -->
+  <section class="slide slide--case" data-slide="11" data-chapter="IV · The Hard Case">
+    <header class="slide__head">
+      <div class="eyebrow">The case with no clean answer</div>
+      <h2 class="display">Elderly care in&nbsp;<em class="em">Japan</em>.</h2>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><b>4.2M</b><span>care workers needed · 2040</span></div>
+      <div class="stat"><b>~700K</b><span>shortage already projected</span></div>
+      <div class="stat"><b>29%</b><span>of population over 65</span></div>
+    </div>
+
+    <div class="options">
+      <div class="option">
+        <span class="option__letter">A</span>
+        <div>
+          <b>Humanoid caregiver.</b>
+          <span>Comfort built on simulated empathy.</span>
+        </div>
+      </div>
+      <div class="option">
+        <span class="option__letter">B</span>
+        <div>
+          <b>Honest machine utility.</b>
+          <span>No deception · no attachment · no comfort.</span>
+        </div>
+      </div>
+      <div class="option">
+        <span class="option__letter">C</span>
+        <div>
+          <b>No robot at all.</b>
+          <span>Human dignity preserved · loneliness, not cared-for.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict verdict--open">
+      This is philosophy, not engineering. <em class="em">There is no clean answer.</em>
+      <span class="verdict__pick">MY ANSWER&nbsp;·&nbsp;<b>B</b> — honest machine. Loss acknowledged.</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 12 · PHILOSOPHICAL MAP ═══════════ -->
+  <section class="slide slide--map" data-slide="12" data-chapter="IV · The Hard Case">
+    <header class="slide__head">
+      <div class="eyebrow">The ground I stand on</div>
+      <h2 class="display">Four&nbsp;thinkers. One&nbsp;<em class="em">question</em>.</h2>
+    </header>
+
+    <div class="map">
+      <article class="map__card">
+        <div class="map__year">IV&nbsp;BCE</div>
+        <h3 class="map__name">Aristotle</h3>
+        <p class="map__idea">Eudaimonia — flourishing through meaningful activity. Remove the activity, remove the human.</p>
+      </article>
+
+      <article class="map__card">
+        <div class="map__year">1486</div>
+        <h3 class="map__name">Pico della Mirandola</h3>
+        <p class="map__idea"><i>Oration on the Dignity of Man.</i> The human is the unfinished creature that creates itself through choice. <span class="ref">(Lecture 5)</span></p>
+      </article>
+
+      <article class="map__card">
+        <div class="map__year">1954</div>
+        <h3 class="map__name">Heidegger</h3>
+        <p class="map__idea"><i>Gestell</i> — the frame in which technology sees everything as resource. If we're not careful, it sees us that way too.</p>
+      </article>
+
+      <article class="map__card">
+        <div class="map__year">1958</div>
+        <h3 class="map__name">Hannah Arendt</h3>
+        <p class="map__idea">Labor · Work · Action. A robot can labor. A robot can work. <em class="em">Only a human can act.</em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 13 · MY POSITION ═══════════ -->
+  <section class="slide slide--position" data-slide="13" data-chapter="V · The Position">
+    <div class="position">
+      <div class="eyebrow">My position — after six months in the field · much may still change</div>
+      <h2 class="display display--xl">
+        Replace the hand.<br>
+        <em class="em em--accent">Keep the face.</em><br>
+        Replace the arm.<br>
+        <em class="em em--accent">Keep the smile.</em>
+      </h2>
+      <p class="lead">
+        Humanoid form belongs in work — <span class="hl">functionally, not emotionally</span>.<br>
+        The uncanny valley is not a wall to break through.<br>
+        <em class="em">It is a line that protects us.</em>
+      </p>
+      <p class="disclosure">
+        This position <em class="em">narrows my market</em>.
+        I refuse the markets my philosophy forbids.
+      </p>
+    </div>
+
+    <div class="position__media">
+      <div class="media-slot">
+        <div class="media-slot__label"><span class="dot"></span><span>media/13_portrait.jpg</span></div>
+        <div class="media-slot__hint">your portrait with G1 + championship medal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 14 · TO YOU ═══════════ -->
+  <section class="slide slide--question" data-slide="14" data-chapter="V · The Position">
+    <div class="questionblock">
+      <div class="eyebrow">And now — to you</div>
+      <h2 class="display display--xl">Would you accept —</h2>
+
+      <ul class="qlist">
+        <li><span class="qlist__num">01</span> a&nbsp;robot <em class="em">nanny</em> for your child?</li>
+        <li><span class="qlist__num">02</span> a&nbsp;robot <em class="em">doctor</em> for your mother?</li>
+        <li><span class="qlist__num">03</span> a&nbsp;robot <em class="em">friend</em> for your loneliness?</li>
+      </ul>
+
+      <p class="ask">
+        If your answer <em class="em">differs</em> for each —<br>
+        ask yourself <span class="hl">why it differs</span>.<br>
+        The answer to that "why" is your&nbsp;philosophy of replacement.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 15 · THANK YOU + SOURCES ═══════════ -->
+  <section class="slide slide--end" data-slide="15" data-chapter="V · The Position">
+    <header class="slide__head slide__head--end">
+      <h2 class="display"><em class="em">Thank you.</em></h2>
+      <p class="subtitle">Questions welcome — in Russian, English, or Kazakh.</p>
+    </header>
+
+    <div class="end-grid">
+      <section class="sources">
+        <h3 class="sources__title">SOURCES</h3>
+        <ol class="sources__list">
+          <li>Mori, M. <i>The Uncanny Valley.</i> <span class="src-meta">Energy, 7(4), 1970. English translation: IEEE Robotics &amp; Automation Magazine, 2012.</span></li>
+          <li>Saygin, A.P. et al. <i>The thing that should not be: predictive coding and the uncanny valley in perceiving human and humanoid robot actions.</i> <span class="src-meta">Social Cognitive and Affective Neuroscience, 2012.</span></li>
+          <li>MacDorman, K.F. &amp; Ishiguro, H. <i>The Uncanny Advantage of Using Androids.</i> <span class="src-meta">Interaction Studies, 2006.</span></li>
+          <li>Aristotle. <i>Nicomachean Ethics</i>; <i>Politics.</i></li>
+          <li>Pico della Mirandola. <i>Oration on the Dignity of Man,</i> 1486.</li>
+          <li>Arendt, H. <i>The Human Condition,</i> University of Chicago Press, 1958.</li>
+          <li>Heidegger, M. <i>The Question Concerning Technology,</i> 1954.</li>
+          <li>Turkle, S. <i>Alone Together: Why We Expect More from Technology and Less from Each Other,</i> Basic Books, 2011.</li>
+          <li>Wada, K. &amp; Shibata, T. <i>Social effects of robot therapy in a care house.</i> <span class="src-meta">Journal of Advanced Computational Intelligence, 2008.</span></li>
+          <li>ILO. <i>Global Estimates on Occupational Injuries,</i> 2024.</li>
+          <li>Japan Ministry of Health, Labour and Welfare. Long-Term Care Workforce Statistics, 2024.</li>
+          <li>NVIDIA. <i>Project GR00T — A Foundation Model for Humanoid Robots,</i> 2024.</li>
+          <li>Goldman Sachs. <i>Generative AI could raise global GDP by 7%,</i> 2023.</li>
+          <li>Baigarayeva, A. <i>Lecture 5 — Philosophy of Life, Death, and Renaissance Humanism.</i> MDE 172, SDU, 2026.</li>
+          <li>Personal engineering practice · Unitree G1 deployments · Kazakhstan · 2024–2026.</li>
+        </ol>
+      </section>
+
+      <aside class="contact">
+        <div class="contact__qr">
+          <div class="media-slot media-slot--square">
+            <div class="media-slot__label"><span class="dot"></span><span>media/15_qr.png</span></div>
+            <div class="media-slot__hint">QR → {{TELEGRAM or LINKEDIN}}</div>
+          </div>
+        </div>
+        <div class="contact__text">
+          <div class="contact__name">Dias Kabdualiyev</div>
+          <div class="contact__role">Director — Alashed Robotics · Unitree&nbsp;KZ</div>
+          <div class="contact__link">{{t.me/your-channel}}</div>
+          <div class="contact__link">{{your@email}}</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- BOTTOM HUD -->
+<footer class="hud hud--bottom" aria-hidden="true">
+  <div class="hud__left">
+    <span class="src-label">SRC</span>
+    <span class="src-text" id="src-text">—</span>
+  </div>
+  <div class="hud__center">
+    <div class="progress"><div class="progress__bar" id="progress-bar"></div></div>
+  </div>
+  <div class="hud__right">
+    <span class="counter" id="counter">01<i>/</i>15</span>
+  </div>
+</footer>
+
+<!-- HIDDEN NOTES HANDLE -->
+<button class="notes-handle" id="notes-handle" aria-label="Заметки · нажмите R">●</button>
+
+<!-- RU SPEAKER NOTES PANEL -->
+<aside class="notes" id="notes" aria-hidden="true">
+  <header class="notes__head">
+    <div class="notes__meta">
+      <span class="notes__brand">РУССКАЯ РЕЧЬ</span>
+      <span class="notes__divider">·</span>
+      <span class="notes__slide">СЛАЙД <b id="notes-num">01</b> / 15</span>
+    </div>
+    <button class="notes__close" id="notes-close" aria-label="Закрыть">×</button>
+  </header>
+  <div class="notes__chapter" id="notes-chapter">§ I · The Question</div>
+  <article class="notes__body" id="notes-body"></article>
+  <footer class="notes__foot">
+    <span><kbd>R</kbd> скрыть/показать</span>
+    <span><kbd>←</kbd> <kbd>→</kbd> навигация</span>
+    <span><kbd>Esc</kbd> закрыть</span>
+  </footer>
+</aside>
+
+<!-- Source attribution map, read by JS -->
+<template id="sources-map">
+  <data data-slide="1"></data>
+  <data data-slide="2">Personal engineering practice · Unitree G1 deployments · 2024–2026</data>
+  <data data-slide="3">NVIDIA GR00T N1 (Mar 2025) · Figure AI Helix (Feb 2025) · Unitree G1 public specs · Tesla Q4 2025 earnings call (Jan 2026)</data>
+  <data data-slide="4">Personal engineering practice · Unitree G1 behaviour design · 2025</data>
+  <data data-slide="5">Mori, M. “The Uncanny Valley,” Energy, 7(4), 1970 · IEEE R&A Magazine 2012 (EN translation)</data>
+  <data data-slide="6">Saygin et al. (2012) · MacDorman &amp; Ishiguro (2006)</data>
+  <data data-slide="7">Original framework · synthesizing Arendt 1958 · Aristotle NE · Heidegger 1954 · Mori 1970</data>
+  <data data-slide="8">ILO Global Estimates on Occupational Injuries (2024) · Foxconn labour reports (2010) · Aristotle, Politics I.4</data>
+  <data data-slide="9">Intuitive Surgical Annual Report (2024) · Heidegger, The Question Concerning Technology (1954)</data>
+  <data data-slide="10">Arendt, The Human Condition (1958) · Turkle, Alone Together (2011)</data>
+  <data data-slide="11">Japan MHLW, Long-Term Care Statistics (2024) · Wada &amp; Shibata (2008)</data>
+  <data data-slide="12">Aristotle NE · Pico della Mirandola (1486) · Heidegger (1954) · Arendt (1958) · MDE 172 Lecture 5</data>
+  <data data-slide="13">Original synthesis — based on the above</data>
+  <data data-slide="14">—</data>
+  <data data-slide="15">See full bibliography on this slide</data>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>

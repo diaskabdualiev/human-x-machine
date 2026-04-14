@@ -1,0 +1,7 @@
+.DS_Store
+.playwright-mcp/
+*.log
+Thumbs.db
+.idea/
+.vscode/
+node_modules/
